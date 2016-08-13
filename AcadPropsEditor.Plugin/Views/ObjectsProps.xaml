@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AcadPropsEditor.Plugin.ViewModels"
         mc:Ignorable="d"
         Title="Редактор свойств объектов" Height="300" Width="400">
     <Window.Resources>
@@ -23,10 +24,34 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TreeView Grid.Column="0" Grid.Row="0" Margin="3"/>
+        <TreeView x:Name="ObkectsTreeView" Grid.Column="0" Grid.Row="0" Margin="3"
+                  ItemsSource="{Binding Path=Layers}">
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded, Mode=TwoWay}" />
+                    <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
+                    <!--<Setter Property="FontWeight" Value="Normal" />
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="FontWeight" Value="Bold" />
+                        </Trigger>
+                    </Style.Triggers>-->
+                </Style>
+            </TreeView.ItemContainerStyle>
+
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type local:ObjectViewModel}" ItemsSource="{Binding Children}">
+                    <TextBlock Text="{Binding Path=Name}" />
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+
         <GridSplitter Grid.Column="1" Grid.Row="0" Width="6" ShowsPreview="False"
                       HorizontalAlignment="Center" VerticalAlignment="Stretch" BorderBrush="White" BorderThickness="1" />
-        <ContentControl Grid.Column="2" Grid.Row="0" Margin="3" />
+        
+        <ContentControl Grid.Column="2" Grid.Row="0" Margin="3" 
+                        Content="{Binding ElementName=ObkectsTreeView, Path=SelectedItem}"/>
+        
         <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="Ок" Margin="3" MinWidth="70" 
                     IsDefault="True" Command="{Binding Path=OkCommand}" />

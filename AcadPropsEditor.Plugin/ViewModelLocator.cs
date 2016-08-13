@@ -20,6 +20,10 @@ namespace AcadPropsEditor.Plugin
     public class ViewModelLocator
     {
         public ObjectPropsViewModel ObjectProps => ServiceLocator.Current.GetInstance<ObjectPropsViewModel>();
+        public LayerViewModel Layer => ServiceLocator.Current.GetInstance<LayerViewModel>();
+        public PointViewModel Point => ServiceLocator.Current.GetInstance<PointViewModel>();
+        public LineViewModel Line => ServiceLocator.Current.GetInstance<LineViewModel>();
+        public CircleViewModel Circle => ServiceLocator.Current.GetInstance<CircleViewModel>();
 
         public static void Cleanup()
         {

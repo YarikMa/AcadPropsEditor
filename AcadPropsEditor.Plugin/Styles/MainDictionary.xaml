@@ -3,6 +3,22 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                     d1p1:Ignorable="d" 
                     xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:plugin="clr-namespace:AcadPropsEditor.Plugin">
+                    xmlns:plugin="clr-namespace:AcadPropsEditor.Plugin"
+                    xmlns:viewModels="clr-namespace:AcadPropsEditor.Plugin.ViewModels"
+                    xmlns:views="clr-namespace:AcadPropsEditor.Plugin.Views">
     <plugin:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+    
+    <DataTemplate DataType="{x:Type viewModels:LayerViewModel}">
+        <views:Layer />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:PointViewModel}">
+        <views:Point />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:LineViewModel}">
+        <views:Line />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:CircleViewModel}">
+        <views:Circle />
+    </DataTemplate>
+    
 </ResourceDictionary>
