@@ -13,6 +13,7 @@
 */
 
 using AcadPropsEditor.Plugin.ViewModels;
+using AcadPropsEditor.Plugin.ViewModels.Objects;
 using Microsoft.Practices.ServiceLocation;
 
 namespace AcadPropsEditor.Plugin

@@ -108,27 +108,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands.cs" />
+    <Compile Include="Models\Circle.cs" />
+    <Compile Include="Models\Layer.cs" />
+    <Compile Include="Models\Line.cs" />
+    <Compile Include="Models\Shape.cs" />
+    <Compile Include="Models\Point.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnityContainerBootstrapper.cs" />
     <Compile Include="ViewModelLocator.cs" />
-    <Compile Include="ViewModels\CircleViewModel.cs" />
-    <Compile Include="ViewModels\LayerViewModel.cs" />
-    <Compile Include="ViewModels\LineViewModel.cs" />
+    <Compile Include="ViewModels\Objects\CircleViewModel.cs" />
+    <Compile Include="ViewModels\Objects\LayerViewModel.cs" />
+    <Compile Include="ViewModels\Objects\LineViewModel.cs" />
     <Compile Include="ViewModels\ObjectPropsViewModel.cs" />
-    <Compile Include="ViewModels\ObjectViewModel.cs" />
-    <Compile Include="ViewModels\PointViewModel.cs" />
-    <Compile Include="ViewModels\TreeNodeViewModel.cs" />
-    <Compile Include="Views\Circle.xaml.cs">
+    <Compile Include="ViewModels\Objects\ObjectViewModel.cs" />
+    <Compile Include="ViewModels\Objects\PointViewModel.cs" />
+    <Compile Include="ViewModels\Objects\TreeNodeViewModel.cs" />
+    <Compile Include="Views\Objects\Circle.xaml.cs">
       <DependentUpon>Circle.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Line.xaml.cs">
+    <Compile Include="Views\Objects\Line.xaml.cs">
       <DependentUpon>Line.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Point.xaml.cs">
+    <Compile Include="Views\Objects\Point.xaml.cs">
       <DependentUpon>Point.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Layer.xaml.cs">
+    <Compile Include="Views\Objects\Layer.xaml.cs">
       <DependentUpon>Layer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ObjectsProps.xaml.cs">
@@ -143,19 +148,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Circle.xaml">
+    <Page Include="Views\Objects\Circle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Line.xaml">
+    <Page Include="Views\Objects\Line.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Point.xaml">
+    <Page Include="Views\Objects\Point.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Layer.xaml">
+    <Page Include="Views\Objects\Layer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,7 +170,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="DataAccess\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

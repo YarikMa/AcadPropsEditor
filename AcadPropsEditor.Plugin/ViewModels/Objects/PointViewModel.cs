@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AcadPropsEditor.Plugin.ViewModels
+﻿namespace AcadPropsEditor.Plugin.ViewModels.Objects
 {
-    public class CircleViewModel : ObjectViewModel
+    public class PointViewModel : ObjectViewModel
     {
+
         #region Properties
 
         private double _x;
@@ -25,17 +20,11 @@ namespace AcadPropsEditor.Plugin.ViewModels
         }
 
         private double _z;
+        
         public double Z
         {
             get { return _z; }
             set { Set(ref _z, value); }
-        }
-
-        private double _radius;
-        public double Radius
-        {
-            get { return _radius; }
-            set { Set(ref _radius, value); }
         }
 
         #endregion

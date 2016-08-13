@@ -1,7 +1,6 @@
 ﻿using System.Windows.Media;
-using GalaSoft.MvvmLight;
 
-namespace AcadPropsEditor.Plugin.ViewModels
+namespace AcadPropsEditor.Plugin.ViewModels.Objects
 {
     public class LayerViewModel : TreeNodeViewModel
     {

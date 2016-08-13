@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
-
-namespace AcadPropsEditor.Plugin.ViewModels
+﻿namespace AcadPropsEditor.Plugin.ViewModels.Objects
 {
     public class ObjectViewModel : TreeNodeViewModel
     {

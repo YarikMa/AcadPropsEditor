@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AcadPropsEditor.Plugin.ViewModels"
+        xmlns:objects="clr-namespace:AcadPropsEditor.Plugin.ViewModels.Objects"
         mc:Ignorable="d"
         Title="Редактор свойств объектов" Height="300" Width="400">
     <Window.Resources>
         <ResourceDictionary Source="../Styles/MainDictionary.xaml" />
     </Window.Resources>
     <Window.DataContext>
-        <!--DataContext="{Binding Source={StaticResource Locator}, Path=ObjectProps}"-->
         <Binding Source="{StaticResource Locator}" Path="ObjectProps" />
     </Window.DataContext>
     <Grid>
@@ -40,7 +40,7 @@
             </TreeView.ItemContainerStyle>
 
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate DataType="{x:Type local:ObjectViewModel}" ItemsSource="{Binding Children}">
+                <HierarchicalDataTemplate DataType="{x:Type objects:ObjectViewModel}" ItemsSource="{Binding Children}">
                     <TextBlock Text="{Binding Path=Name}" />
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>

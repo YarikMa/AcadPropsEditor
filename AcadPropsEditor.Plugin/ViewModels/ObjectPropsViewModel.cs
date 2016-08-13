@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using AcadPropsEditor.Plugin.ViewModels.Objects;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 

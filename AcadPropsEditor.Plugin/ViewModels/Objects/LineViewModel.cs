@@ -1,4 +1,4 @@
-﻿namespace AcadPropsEditor.Plugin.ViewModels
+﻿namespace AcadPropsEditor.Plugin.ViewModels.Objects
 {
     public class LineViewModel : ObjectViewModel
     {
