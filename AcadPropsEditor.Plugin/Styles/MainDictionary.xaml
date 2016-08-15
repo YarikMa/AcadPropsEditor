@@ -4,23 +4,20 @@
                     d1p1:Ignorable="d" 
                     xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     xmlns:plugin="clr-namespace:AcadPropsEditor.Plugin"
-                    xmlns:viewModels="clr-namespace:AcadPropsEditor.Plugin.ViewModels"
-                    xmlns:views="clr-namespace:AcadPropsEditor.Plugin.Views"
-                    xmlns:objects="clr-namespace:AcadPropsEditor.Plugin.ViewModels.Objects"
-                    xmlns:objects1="clr-namespace:AcadPropsEditor.Plugin.Views.Objects">
+                    xmlns:vm="clr-namespace:AcadPropsEditor.Plugin.ViewModels"
+                    xmlns:views="clr-namespace:AcadPropsEditor.Plugin.Views">
     <plugin:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
     
-    <DataTemplate DataType="{x:Type objects:LayerViewModel}">
-        <objects1:Layer />
+    <DataTemplate DataType="{x:Type vm:LayerViewModel}">
+        <views:Layer />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type objects:PointViewModel}">
-        <objects1:Point />
+    <DataTemplate DataType="{x:Type vm:PointViewModel}">
+        <views:Point />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type objects:LineViewModel}">
-        <objects1:Line />
+    <DataTemplate DataType="{x:Type vm:LineViewModel}">
+        <views:Line />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type objects:CircleViewModel}">
-        <objects1:Circle />
+    <DataTemplate DataType="{x:Type vm:CircleViewModel}">
+        <views:Circle />
     </DataTemplate>
-    
 </ResourceDictionary>

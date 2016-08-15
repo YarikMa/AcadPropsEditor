@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using AcadPropsEditor.Plugin.ViewModels;
 
 namespace AcadPropsEditor.Plugin.Views
 {
@@ -10,6 +11,12 @@ namespace AcadPropsEditor.Plugin.Views
         public ObjectsProps()
         {
             InitializeComponent();
+
+            var vm = (IClosableViewModel) DataContext;
+            vm.ClosingRequest += (sender, args) =>
+            {
+                DialogResult = true;
+            };
         }
     }
 }

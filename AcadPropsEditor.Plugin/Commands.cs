@@ -3,10 +3,8 @@
 
 using AcadPropsEditor.Plugin;
 using AcadPropsEditor.Plugin.Views;
-using Autodesk.AutoCAD.ApplicationServices;
-using Autodesk.AutoCAD.DatabaseServices;
-using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
+using AutocadApp = Autodesk.AutoCAD.ApplicationServices.Core.Application;
 
 // This line is not mandatory, but improves loading performances
 [assembly: CommandClass(typeof(Commands))]
@@ -34,16 +32,7 @@ namespace AcadPropsEditor.Plugin
         [CommandMethod("EDITOBJECTS", CommandFlags.Modal)]
         public void EditObjectsCommand() // This method can have any name
         {
-            // Put your command code here
-            Document doc = Autodesk.AutoCAD.ApplicationServices.Core.Application.DocumentManager.MdiActiveDocument;
-            //Application.ShowModalWindow()
-            Editor ed;
-            if (doc != null)
-            {
-                ed = doc.Editor;
-                ed.WriteMessage("Hello, this is your first command.");
-                Autodesk.AutoCAD.ApplicationServices.Core.Application.ShowModalWindow(new ObjectsProps());
-            }
+            AutocadApp.ShowModalWindow(new ObjectsProps());
         }
     }
 

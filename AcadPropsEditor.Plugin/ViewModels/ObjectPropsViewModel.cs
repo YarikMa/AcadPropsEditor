@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using AcadPropsEditor.Plugin.ViewModels.Objects;
+using AcadPropsEditor.Plugin.DataAccess;
+using AcadPropsEditor.Plugin.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.Practices.ObjectBuilder2;
 
 namespace AcadPropsEditor.Plugin.ViewModels
 {
-    public class ObjectPropsViewModel : ViewModelBase
+    public class ObjectPropsViewModel : ViewModelBase, IClosableViewModel
     {
-        public ObjectPropsViewModel()
+        private readonly IRepository<Layer> _layerRepository;
+
+        public ObjectPropsViewModel(IRepository<Layer> layerRepository)
         {
+            _layerRepository = layerRepository;
+            LoadLayers();
+
             _okCommand = new Lazy<RelayCommand>(() => new RelayCommand(Ok));
         }
 
+        public EventHandler ClosingRequest { get; set; }
+
         #region Properties
 
-        public ObservableCollection<LayerViewModel> Layers { get; } = new ObservableCollection<LayerViewModel>()
-        {
-            new LayerViewModel() { Name = "Слой 1", IsVisible = false, Color = Colors.AliceBlue },
-            new LayerViewModel() {Name = "Слой 2", IsVisible = true, Color = Colors.Red},
-            new LayerViewModel() {Name = "Слой 3", IsVisible = false, Color = Colors.Gray}
-        };
+        public ObservableCollection<LayerViewModel> Layers { get; } = new ObservableCollection<LayerViewModel>();
 
         #endregion
 
@@ -34,10 +36,20 @@ namespace AcadPropsEditor.Plugin.ViewModels
 
         private void Ok()
         {
-            MessageBox.Show("Hello!");
+            Layers.ForEach(l => l.Save());
+            ClosingRequest?.Invoke(this, null);
         }
 
         #endregion
 
+        private void LoadLayers()
+        {
+            var layers = _layerRepository.GetAll();
+
+            foreach (var layer in layers)
+            {
+                Layers.Add(new LayerViewModel(layer));
+            }
+        }
     }
 }

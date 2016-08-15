@@ -2,9 +2,9 @@
 
 namespace AcadPropsEditor.Plugin.Models
 {
-    public class Circle : Shape
+    public class Circle : Entity
     {
-        public Point3D Center { get; set; }
-        public double Radius { get; set; }
+        public Point3D Center;
+        public double Radius;
     }
 }

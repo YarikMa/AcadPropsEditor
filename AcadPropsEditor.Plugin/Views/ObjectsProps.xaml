@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AcadPropsEditor.Plugin.ViewModels"
-        xmlns:objects="clr-namespace:AcadPropsEditor.Plugin.ViewModels.Objects"
         mc:Ignorable="d"
         Title="Редактор свойств объектов" Height="300" Width="400">
     <Window.Resources>
@@ -24,26 +23,28 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TreeView x:Name="ObkectsTreeView" Grid.Column="0" Grid.Row="0" Margin="3"
-                  ItemsSource="{Binding Path=Layers}">
+        <TreeView x:Name="ObkectsTreeView" Grid.Column="0" Grid.Row="0" Margin="3" ItemsSource="{Binding Path=Layers}">
             <TreeView.ItemContainerStyle>
                 <Style TargetType="{x:Type TreeViewItem}">
                     <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded, Mode=TwoWay}" />
                     <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
-                    <!--<Setter Property="FontWeight" Value="Normal" />
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="FontWeight" Value="Bold" />
-                        </Trigger>
-                    </Style.Triggers>-->
                 </Style>
             </TreeView.ItemContainerStyle>
 
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate DataType="{x:Type objects:ObjectViewModel}" ItemsSource="{Binding Children}">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:LayerViewModel}" ItemsSource="{Binding Path=Children}">
                     <TextBlock Text="{Binding Path=Name}" />
                 </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
+                <DataTemplate DataType="{x:Type local:CircleViewModel}">
+                    <TextBlock Text="{Binding Path=Name}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type local:PointViewModel}">
+                    <TextBlock Text="{Binding Path=Name}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type local:LineViewModel}">
+                    <TextBlock Text="{Binding Path=Name}" />
+                </DataTemplate>
+            </TreeView.Resources>
         </TreeView>
 
         <GridSplitter Grid.Column="1" Grid.Row="0" Width="6" ShowsPreview="False"

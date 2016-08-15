@@ -1,11 +1,11 @@
-﻿using System.Windows.Media;
+﻿using System.Collections.Generic;
+using System.Windows.Media;
 
 namespace AcadPropsEditor.Plugin.Models
 {
-    public class Layer
+    public class Layer : Entity
     {
-        public string Name { get; set; }
-        public Color Color { get; set; }
-        public bool IsVisible { get; set; }
+        public Color Color;
+        public bool IsOff;
     }
 }

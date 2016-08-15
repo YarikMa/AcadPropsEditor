@@ -1,13 +1,13 @@
 ﻿using System.Windows.Controls;
 
-namespace AcadPropsEditor.Plugin.Views.Objects
+namespace AcadPropsEditor.Plugin.Views
 {
     /// <summary>
     /// Логика взаимодействия для Layer.xaml
     /// </summary>
-    public partial class Circle : UserControl
+    public partial class Point : UserControl
     {
-        public Circle()
+        public Point()
         {
             InitializeComponent();
         }

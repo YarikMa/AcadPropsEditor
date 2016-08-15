@@ -2,8 +2,8 @@
 
 namespace AcadPropsEditor.Plugin.Models
 {
-    public class Point : Shape
+    public class Point : Entity
     {
-        public Point3D Center { get; set; }
+        public Point3D Center;
     }
 }

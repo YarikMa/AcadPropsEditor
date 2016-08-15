@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace AcadPropsEditor.Plugin.Views.Objects
+namespace AcadPropsEditor.Plugin.Views
 {
     /// <summary>
     /// Логика взаимодействия для Layer.xaml

@@ -2,9 +2,9 @@
 
 namespace AcadPropsEditor.Plugin.Models
 {
-    public class Line : Shape
+    public class Line : Entity
     {
-        public Point3D StartPoint { get; set; }
-        public Point3D EndPoint { get; set; }
+        public Point3D StartPoint;
+        public Point3D EndPoint;
     }
 }
